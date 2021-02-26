@@ -21,3 +21,15 @@ class HashTable:
         linked_list = self.arr[hash_key]
         linked_list_ind = linked_list.find(item)
         linked_list.update(linked_list_ind, item)
+
+    def print_key_values(self):
+        # loops through the arr and through every linked list node to print the frequencies
+        for linked_list in self.arr:
+            if not linked_list.head:
+                continue
+
+            current = linked_list.head
+
+            while current:
+                print(current)
+                current = current.next
