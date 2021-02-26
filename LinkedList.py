@@ -29,33 +29,19 @@ class LinkedList:
         else:
             return -1
 
-    def update(self, ind, item):
-        if ind == -1:
-            # try to find out if its because of the value is not equal or if its because it's the first time the linked_list has seen this
-            current_node = self.head
+    def update(self, item):
+        current = self.head
 
-            while current_node:
-                if current_node.data and current_node.data[0] == item[0]:
-                    # just update value then end
-                    current_node.data[1] += item[1]
-                    return
-                else:
-                    # otherwise continue the loop to the next node
-                    current_node = current_node.next
-
-            # if code reaches here, means the word doesn't exist in the LinkedList, so just simply append
-            self.append(item)
-
-        else:
-            # otherwise find the node and update its value
-            current_node = self.head
-            copy_ind = ind
-
-            while copy_ind != -1:
-                current_node.next
-                copy_ind -= 1
-
-            current_node.data[1] += item[1]
+        # loop through every node in the linkedlist, if we find the key then update and stop otherwise continue
+        while current != None:
+            if current.data[0] == item[0]:
+                current.data[1] += item[1]
+                return
+            else:
+                current = current.next
+        
+        # if we reach here that means we didnt find the item[key] in any node within the linkedlist, so just append
+        self.append(item)
 
     def length(self):
         if self.head == None:
