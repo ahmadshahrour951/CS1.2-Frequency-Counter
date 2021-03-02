@@ -6,6 +6,7 @@ class LinkedList:
         self.head = None
 
     def append(self, new_data):
+       # reassigns the head to the new_data readjusts the pointer of the node
         new_node = Node(new_data)
         new_node.next = self.head
         self.head = new_node
@@ -15,7 +16,8 @@ class LinkedList:
 
         found = False
         counter = 0
-
+        
+        # Goes through every node in the linked list and stops when it is found
         while current != None and not found:
 
             if current.data == item:
@@ -44,6 +46,7 @@ class LinkedList:
         self.append(item)
 
     def length(self):
+      # determines the length of linkedlist by using a counter and a whilemloop
         if self.head == None:
             return 0
         else:
